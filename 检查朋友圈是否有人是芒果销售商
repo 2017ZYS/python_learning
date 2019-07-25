@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Oct 12 15:31:15 2018
+
+@author: zhangyushun
+"""
+
+graph={}
+graph["you"]=['alice','bob','claire']
+graph["bob"]=['anuj','peggy']
+graph["alice"]=['peggy']
+graph["claire"]=['thom','jonny']
+graph["anuj"]=[]
+graph["peggy"]=[]
+graph["thom"]=[]
+graph["jpny"]=[]
+
+from collections import deque
+search_queue=deque()#创建一个队列
+search_queue+=graph["you"]
+while search_queue:#只要队列不为空
+    person=search_queue.popleft()#就取出其中的第一个人
+    if person_is_seller(person):#检查这个人是否是芒果销售商
+        print(person+" is a mango seller!")#是，打印芒果销售商
+    else:#此人不是芒果销售商，将其朋友加入到搜索队列
+        search_queue+=graph[person]
+return False #如果达到了这里，就说明队列中没人是芒果销售商了
+
+
+        
+    

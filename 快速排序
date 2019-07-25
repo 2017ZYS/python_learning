@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct 11 18:42:30 2018
+
+@author: zhangyushun
+"""
+
+def quicksort(array):
+    if len(array)<2:
+        return array
+    else:
+        pivot=array[0]
+        left=[i for i in array[1:] if i<=pivot]
+        right=[i for i in array[1:] if i>pivot]
+        return quicksort(left)+[pivot]+quicksort(right)
+print(quicksort([10,5,2,3]))
+
+
+array=[10,5,3,4,2]
+pivot=array[0]
+left=[i for i in array[1:] if i<=pivot]
+right=[i for i in array[1:] if i>pivot]
